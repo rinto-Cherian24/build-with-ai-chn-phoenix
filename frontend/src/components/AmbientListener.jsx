@@ -44,6 +44,9 @@ const AmbientListener = ({ onTranscriptAdded }) => {
       if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
         setIsListening(false);
         setMicError(true);
+      } else if (event.error === 'aborted') {
+        // Prevent infinite restart loop if the browser engine forcefully aborts
+        setIsListening(false);
       }
     };
 
