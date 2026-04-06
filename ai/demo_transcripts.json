@@ -1,0 +1,17 @@
+[
+  {
+    "transcript_id": "demo_01",
+    "topic": "Marketing Campaign",
+    "text": "Uhh, testing, can everyone hear me? Okay great. So it's pouring rain outside, my commute was awful. Anyway, let's get into the Q4 marketing plan. Uh, someone was saying we should do TikTok ads, but I don't know, it feels too young. John, can you look into the pricing for LinkedIn ads instead? Let's say, by tomorrow end of day. And I think we need to decide right now: let's officially kill the email newsletter. It's generating zero conversions. Does everyone agree? Yes? Okay, newsletter is dead."
+  },
+  {
+    "transcript_id": "demo_02",
+    "topic": "Server Outage & Budget",
+    "text": "Hey Sarah, nice background, is that Hawaii? Oh, virtual, got it. So guys, AWS costs are exploding. Like, it's actually insane. Mmm, the database is spinning out of control. We need immediate action. I am putting a hard cap on the AWS budget at $2,000 a month starting today. Period. Also, Sarah, please draft that incident report for yesterday's 502 error and send it to engineering by Friday at noon. Oh, my dog is barking, hold on..."
+  },
+  {
+    "transcript_id": "demo_03",
+    "topic": "Event Planning",
+    "text": "Is this mic on? Hello? Okay. So for the offsite in Miami... wait, did we say Miami or Austin? Whatever, we'll figure that out later. The main thing is catering. I love tacos, but maybe we should do sushi. Actually, let's not decide that yet. But listen up, we ARE deciding that the maximum budget per person for the offsite is $150. No more than that. David, can you please call the hotel and confirm our block of rooms? I need that done by Wednesday morning."
+  }
+]

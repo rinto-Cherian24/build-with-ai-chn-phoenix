@@ -1,0 +1,52 @@
+{
+  "PILLAR_A_CONTEXT_MEMORY_MOCKS": [
+    {
+      "item_id": "ctx_001",
+      "type": "decision",
+      "content": "Cut AWS spending to max $2000/month starting immediately.",
+      "assignee": null,
+      "deadline": null
+    },
+    {
+      "item_id": "ctx_002",
+      "type": "task",
+      "content": "Draft the Q3 marketing analysis.",
+      "assignee": "John",
+      "deadline": "Thursday EOD"
+    },
+    {
+      "item_id": "ctx_003",
+      "type": "task",
+      "content": "Contact the venue to finalize the catering numbers.",
+      "assignee": "Sarah",
+      "deadline": "Tomorrow morning"
+    }
+  ],
+  "PILLAR_B_PRAXIS_SIMULATION_MOCK": {
+    "riskScore": 75,
+    "riskLevel": "high",
+    "sayDoGap": "Managers expect increased velocity, but developers predict a massive spike in critical bugs.",
+    "insight": "Relying purely on AI testing without QA will crash production within 48 hours.",
+    "saferVariant": "Reduce the QA team by 10% and transition them to become 'AI Testing Supervisors' rather than firing the whole team at once.",
+    "conversation": [
+      {
+        "agentId": "manager",
+        "agentName": "VP of Engineering",
+        "text": "By firing the QA team and relying purely on AI testing tools starting Monday, we will drastically cut overhead costs and ship code twice as fast.",
+        "timeOffset": 500
+      },
+      {
+        "agentId": "customer",
+        "agentName": "Senior Developer",
+        "text": "Are you kidding? AI hallucinated three critical pipeline errors yesterday. If I don't have QA to backstop me, I'm going to spend all my time fixing production outages instead of coding.",
+        "timeOffset": 2000
+      },
+      {
+        "agentId": "legal",
+        "agentName": "Head of Security",
+        "text": "This is completely reckless. AI tools cannot verify compliance with strict data-privacy regulations. We are opening ourselves up to massive liability and potential data breaches by removing human oversight.",
+        "timeOffset": 3500
+      }
+    ]
+  }
+}
