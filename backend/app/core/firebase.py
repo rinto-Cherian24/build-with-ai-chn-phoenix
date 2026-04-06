@@ -36,3 +36,16 @@ async def save_praxis_session(data: dict):
         logger.error(f"Failed to save to Firebase RTDB: {e}")
         # Not throwing here so we don't break the main API response if DB logging fails
         return None
+
+async def save_meeting_context(data: dict):
+    """
+    Pushes a new record to the /extracted_context path in the Realtime Database.
+    """
+    try:
+        ref = db.reference('/extracted_context')
+        new_ref = ref.push(data)
+        logger.info(f"Successfully saved meeting context: {new_ref.key}")
+        return new_ref.key
+    except Exception as e:
+        logger.error(f"Failed to save context to Firebase RTDB: {e}")
+        return None

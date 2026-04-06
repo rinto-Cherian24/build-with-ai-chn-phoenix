@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import AgentArena from './components/AgentArena';
 import ContextPanel from './components/ContextPanel';
 import SimulationResultModal from './components/SimulationResultModal';
-import { mockContextMemory, mockSimulationResult } from './data/mockData';
+import { db } from './firebase';
+import { ref, onValue } from 'firebase/database';
 
 function App() {
   const [prompt, setPrompt] = useState('Launch a 50% discount blitz for 24h via pop-ups and push notifications.');
@@ -12,81 +13,105 @@ function App() {
   const [activeSpeaker, setActiveSpeaker] = useState(null);
   const [visibleMessages, setVisibleMessages] = useState([]);
   
-  // Phase 2: Dynamic state mapping for ambient extraction
-  const [contextMemory, setContextMemory] = useState(mockContextMemory);
+  // Phase 3: Realtime Database Connection
+  const [contextMemory, setContextMemory] = useState([]);
+  const [simulationSummary, setSimulationSummary] = useState(null);
 
-  const handleTranscriptAdded = (transcriptText) => {
-    const text = transcriptText.toLowerCase();
-    
-    // Simple logic engine simulating backend keyword extraction
-    let type = null;
-    if (text.includes('deadline')) type = 'deadline';
-    else if (text.includes('decision')) type = 'decision';
-    else if (text.includes('task')) type = 'task';
-    
-    if (type) {
-      const newMemory = {
-        id: `amb-${Date.now()}`,
-        type: type,
-        topic: 'Ambient Extraction',
-        content: `"${transcriptText}"`,
-        time: 'Just now'
-      };
-      setContextMemory(prev => [newMemory, ...prev]);
-    } else {
-      const rawMemory = {
-        id: `amb-${Date.now()}`,
-        type: 'note',
-        topic: 'Raw Audio Note',
-        content: `"${transcriptText}"`,
-        time: 'Just now'
-      };
-      setContextMemory(prev => [rawMemory, ...prev]);
+  // Read Firebase RTDB using WebSockets (onValue)
+  useEffect(() => {
+    const contextRef = ref(db, 'extracted_context');
+    const unsubscribe = onValue(contextRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const rawArray = Object.values(data);
+        const finalMemory = [];
+        
+        // Convert to UI memory format
+        rawArray.forEach((meeting, idx) => {
+             if (meeting.extracted_items) {
+                 meeting.extracted_items.forEach((item, innerIdx) => {
+                     finalMemory.push({
+                         id: `fb-${idx}-${innerIdx}`,
+                         type: item.type,
+                         topic: item.assignee || 'General Task',
+                         content: item.content,
+                         time: item.deadline || 'No Deadline',
+                         suggestion: item.proactive_suggestion || null
+                     });
+                 });
+             }
+        });
+        
+        // Reverse so newest items are at the top
+        setContextMemory(finalMemory.reverse());
+      }
+    });
+
+    // Cleanup listener on unmount
+    return () => unsubscribe();
+  }, []);
+
+  const handleTranscriptAdded = async (transcriptText) => {
+    // Send to Context Extractor backend
+    try {
+        await fetch('http://127.0.0.1:8000/api/process-meeting', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ meeting_id: `live_${Date.now()}`, transcript: transcriptText })
+        });
+        // Note: No need to setContextMemory here manually!
+        // Firebase onValue listener above will instantly catch the DB update and trigger the UI.
+    } catch(err) {
+        console.error("Backend Context Extractor offline", err);
     }
   };
 
-  const handleSimulate = () => {
+  const handleSimulate = async () => {
     if (!prompt.trim()) return;
     setIsSimulating(true);
     setShowSummary(false);
     setVisibleMessages([]);
     setActiveSpeaker(null);
     
-    // Render conversations simulating AI delays and 'thinking' status
-    mockSimulationResult.conversation.forEach((msg) => {
-      // Begin "Thinking" 1000ms before sending their message
-      setTimeout(() => {
-        setActiveSpeaker(msg.agentId);
-      }, Math.max(0, msg.timeOffset - 1000));
+    try {
+        // Send to Praxis Swarm Backend
+        const response = await fetch('http://127.0.0.1:8000/api/simulate-praxis', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt: prompt })
+        });
+        const result = await response.json();
+        setSimulationSummary(result);
+        
+        // Feed the chat logs into the UI
+        result.conversation.forEach((msg) => {
+          setTimeout(() => setActiveSpeaker(msg.agentId), Math.max(0, msg.timeOffset - 1000));
+          setTimeout(() => setVisibleMessages(prev => [...prev, msg]), msg.timeOffset);
+        });
+        
+        const finalOffset = result.conversation[result.conversation.length - 1].timeOffset;
+        setTimeout(() => setActiveSpeaker(null), finalOffset + 1500);
+        setTimeout(() => {
+          setIsSimulating(false);
+          setShowSummary(true);
+        }, finalOffset + 3000);
 
-      // Append Message
-      setTimeout(() => {
-        setVisibleMessages(prev => [...prev, msg]);
-      }, msg.timeOffset);
-    });
-    
-    // Clear final speaker shortly after last message completes
-    const finalOffset = mockSimulationResult.conversation[mockSimulationResult.conversation.length - 1].timeOffset;
-    setTimeout(() => {
-      setActiveSpeaker(null);
-    }, finalOffset + 1500);
-
-    // Finish simulation roughly synced
-    setTimeout(() => {
-      setIsSimulating(false);
-      setShowSummary(true);
-    }, 5500);
+    } catch(err) {
+        console.error("Simulation failed", err);
+        setIsSimulating(false);
+    }
   };
 
   const handleRewrite = () => {
-    setPrompt(mockSimulationResult.saferVariant);
+    if (simulationSummary && simulationSummary.saferVariant) {
+        setPrompt(simulationSummary.saferVariant);
+    }
     setShowSummary(false);
   };
 
   return (
     <div className="layout-container">
       <AgentArena activeSpeaker={activeSpeaker} />
-
       <ContextPanel 
         prompt={prompt}
         setPrompt={setPrompt}
@@ -96,11 +121,11 @@ function App() {
         contextMemory={contextMemory}
         onTranscriptAdded={handleTranscriptAdded}
       />
-
-      {showSummary && (
+      {showSummary && simulationSummary && (
         <SimulationResultModal 
           onClose={() => setShowSummary(false)}
           onRewrite={handleRewrite}
+          summary={simulationSummary}
         />
       )}
     </div>

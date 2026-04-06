@@ -1,7 +1,8 @@
 import React from 'react';
-import { mockSimulationResult } from '../data/mockData';
 
-const SimulationResultModal = ({ onClose, onRewrite }) => {
+const SimulationResultModal = ({ onClose, onRewrite, summary }) => {
+  if (!summary) return null;
+  
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="summary-modal glass-panel" onClick={e => e.stopPropagation()}>
@@ -10,24 +11,24 @@ const SimulationResultModal = ({ onClose, onRewrite }) => {
         <div className="risk-score">
           <div>
             <div style={{color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.2rem'}}>Systemic Risk Score</div>
-            <div style={{color: 'var(--text-main)', fontSize: '1rem', fontWeight: 500}}>{mockSimulationResult.sayDoGap}</div>
+            <div style={{color: 'var(--text-main)', fontSize: '1rem', fontWeight: 500}}>{summary.sayDoGap}</div>
           </div>
-          <div className={`risk-value ${mockSimulationResult.riskLevel}`}>
-            {mockSimulationResult.riskScore}%
+          <div className={`risk-value ${summary.riskLevel || 'medium'}`}>
+            {summary.riskScore}%
           </div>
         </div>
 
         <div className="insight-section">
           <h4>Behavioral Insight</h4>
           <div className="insight-content">
-            {mockSimulationResult.insight}
+            {summary.insight}
           </div>
         </div>
 
         <div className="insight-section" style={{marginBottom: 0}}>
           <h4>Safer Variant Recommendation</h4>
           <div className="better-variant">
-            {mockSimulationResult.saferVariant}
+            {summary.saferVariant}
           </div>
         </div>
 

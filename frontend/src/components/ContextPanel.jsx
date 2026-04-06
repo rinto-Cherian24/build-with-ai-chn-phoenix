@@ -30,6 +30,20 @@ const ContextPanel = ({ prompt, setPrompt, isSimulating, onSimulate, visibleMess
               </div>
               <div style={{fontWeight: 500, margin: '0.3rem 0', color: 'var(--text-main)'}}>{mem.topic}</div>
               <div className="context-card-desc">{mem.content}</div>
+              {mem.suggestion && (
+                <button 
+                  className="ai-sparkle-btn" 
+                  style={{
+                    marginTop: '0.8rem', width: '100%', background: 'linear-gradient(90deg, #60efff, #00ff87)', 
+                    border: 'none', borderRadius: '4px', padding: '0.6rem', color: '#091e3b', 
+                    fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer',
+                    boxShadow: '0 4px 15px rgba(0, 255, 135, 0.4)', transition: 'all 0.2sease-in-out'
+                  }}
+                  onClick={() => alert("Simulating Developer 3 hooking up Google Workspace APIs...")}
+                >
+                  ✨ {mem.suggestion}
+                </button>
+              )}
             </div>
           ))}
         </div>
