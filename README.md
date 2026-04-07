@@ -17,9 +17,9 @@
  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝
 ```
 
-### *A Next-Generation AI Assistant — Context-Aware. Domain-Adaptive. Predictively Intelligent.*
+### *The Cognitive OS for Decision Makers.*
 
-> **"Understand everything. Forget nothing. Simulate before you act."**
+> **"Listen ambiently. Simulate the real world. Bridge the Say-Do Gap."**
 
 <br/>
 
@@ -29,663 +29,227 @@
 
 ---
 
-## 📌 Table of Contents
-
-- [Problem Statement](#-problem-statement)
-- [How Omni Solves It](#-how-omni-solves-it)
-- [Core Innovations](#-core-innovations)
-- [Domain Coverage](#-domain-coverage)
-- [System Architecture](#-system-architecture)
-- [Workflow Diagrams](#-workflow-diagrams)
-  - [High-Level Flow](#1-high-level-system-flow)
-  - [Context Understanding Pipeline](#2-context-understanding-pipeline)
-  - [Multi-Agent Simulation Flow](#3-praxis-swarm--multi-agent-simulation-flow)
-  - [Risk Scoring Logic](#4-risk-score-aggregation-logic)
-  - [Domain Adaptation Flow](#5-domain-adaptation-flow)
-  - [End-to-End User Journey](#6-end-to-end-user-journey)
-- [Google AI Integration](#-google-ai-integration)
-- [Tech Stack](#-tech-stack)
-- [Installation](#-installation)
-- [API Reference](#-api-reference)
-- [Project Structure](#-project-structure)
-- [Roadmap](#-roadmap)
-
----
-
 ## 🎯 Problem Statement
 
 > **Category: Problem Statement 4 — Next-Generation AI Assistants**
 
-The demand for intelligent systems capable of assisting users in **decision-making**, **automating workflows**, and **managing information** is rapidly increasing across domains. Existing systems often lack **contextual understanding** and **adaptability**.
+Decision-makers face two massive bottlenecks:
 
-The challenge: develop an advanced AI assistant capable of:
+1. **The Input Friction:** Having to constantly stop and type prompts into an AI to get things done.
+2. **The Say-Do Gap:** The massive chasm between a great idea proposed in a meeting, and the messy, risk-filled reality of executing it in the real world.
 
-| Capability | What It Means in Practice |
-|---|---|
-| 🧠 **Understanding Context** | Go beyond keywords — grasp intent, history, and conversational nuance |
-| 🔍 **Analyzing Information** | Process unstructured inputs and extract actionable signals |
-| ⚙️ **Performing Meaningful Actions** | Not just answer — actually do things intelligently |
-| 🔄 **Adaptability Across Domains** | Work equally well in education, business, and everyday life |
-| 📈 **Enhancing Productivity & UX** | Eliminate friction and cognitive overhead for every type of user |
+Current AI assistants just agree with whatever you tell them to do. They do not test the resilience of a decision, and they don't anticipate the real-world pushback you will inevitably face from stakeholders, clients, or the market.
 
-Existing AI assistants fail because they are **reactive, stateless, and single-domain** — they respond to prompts but never truly *understand* the evolving context of a user's world.
+**The Challenge:** Build a next-generation assistant that seamlessly captures decisions directly from ambient environments, and then **simulates the execution** of those decisions in a virtual real-world setting to expose risks *before* taking action.
 
 ---
 
-## 💡 How Omni Solves It
+## 💡 Project Description
 
-Project Omni is a **Cognitive AI Operating System** — not just a chatbot. It addresses every gap in current next-generation AI assistant systems:
+Project Omni is a dual-engine AI Operating System designed specifically for decision-makers. It operates in two phases: **Capture** and **Simulate**.
 
-```
-❌ Current AI Assistants            ✅ Project Omni
-────────────────────────────────    ──────────────────────────────────────────────
-Reactive (waits for prompts)    →   Proactive (intercepts + structures context)
-Stateless (forgets history)     →   Persistent Ledger (zero information loss)
-Single domain (chat only)       →   Multi-domain (business · education · personal)
-Generic responses               →   Domain-adaptive personas & expert simulation
-No simulation or foresight      →   Praxis Swarm (tests decisions before execution)
-Text output only                →   Executable JSON + real-world webhook actions
-No risk awareness               →   Quantified Risk Score per decision (0–100)
-```
+### Phase 1: The Cognitive Dashcam (Zero-Prompt Capture)
 
----
+Omni runs quietly in the background of your meetings, brainstorming sessions, or daily life. It actively filters out ambient noise, casual banter, and "loose talk," isolating only the core intent. When the session ends, it has already transformed your thoughts into structured, executable tasks — without you ever typing a single prompt.
 
-## ⚡ Core Innovations
+### Phase 2: Praxis (The Real-World Simulation Engine)
 
-### 🎙️ Innovation 1 — The Cognitive Dashcam *(Context Engine)*
+Before executing any captured task, Omni routes it through **Praxis**. Praxis is not a chatbot; it is a multi-agent simulation arena.
 
-Most AI assistants process what you *say*, not what you *mean*. The Cognitive Dashcam is an **active context intelligence layer** that transforms chaotic, unstructured inputs — voice recordings, lecture notes, casual conversation, meeting transcripts — into a machine-executable ledger of decisions and actions.
-
-**Capabilities:**
-- Actively filters noise, filler words, and off-topic tangents from any input
-- Identifies intent, ownership, priorities, and deadlines with precision
-- Outputs strict **Pydantic-validated JSON** — not summaries, but executable action objects
-- Fully domain-adaptive: a student's study plan, a manager's task list, a user's daily agenda all flow through the same pipeline
-
-### 🧪 Innovation 2 — The Praxis Swarm *(Predictive Simulation Arena)*
-
-Before any decision or action is executed, Omni intercepts it. The Praxis Swarm **instantiates specialized AI expert personas** that concurrently debate the proposed action from distinct domain lenses — surfacing hidden risks and generating safer alternatives *before* real-world impact.
-
-**Capabilities:**
-- Spawns domain-appropriate AI personas concurrently (e.g. Legal · Finance · Customer for business; Teacher · Student · Parent for education)
-- Each persona independently stress-tests the action from its area of expertise
-- Aggregates all debate outputs into a quantified **Risk Score (0–100)**
-- Auto-generates safer, optimized **alternative action paths**
-- Transforms reactive damage control into true **predictive intelligence**
-
----
-
-## 🌐 Domain Coverage
-
-Project Omni's architecture is domain-agnostic. The same core Gemini-powered engine dynamically shifts behavior based on detected context:
-
-```mermaid
-%%{init: {'theme': 'neutral'}}%%
-mindmap
-  root((🧠 Project Omni\nNext-Gen AI Assistant))
-    🏢 Business
-      Meeting Notes → Executable Tasks
-      Decision Simulation & Risk Scoring
-      Workflow Automation
-      Team Assignment Ledger
-      Slack · Jira Integration
-    🎓 Education
-      Lectures → Structured Study Plans
-      Assignment & Deadline Tracking
-      Learning Gap Analysis
-      Student Progress Simulation
-      Calendar & Reminder Export
-    🏠 Everyday Personal Use
-      Voice Notes → Action Items
-      Personal Goal & Habit Tracking
-      Daily Agenda Management
-      Decision Support for Daily Life
-      Health · Finance · Social Personas
-    🔬 Other Domains
-      Healthcare Workflow Logging
-      Legal Brief Structuring
-      Research Task Extraction
-      Event & Project Planning
-```
+- It takes your proposed decision and spawns multiple AI agents, each assigned a dynamic persona based on the context of the prompt (e.g., a Skeptical Client, a Risk-Averse Legal Officer, and a Resource-Constrained Engineer).
+- These agents chat, debate, and push back against the decision.
+- Their interactions are mathematically weighted by a dynamic **Risk Score** based on the resources and constraints of the situation.
+- **The Goal:** To definitively close the **Say-Do Gap** by predicting exactly where your execution will fail, and providing a hardened, risk-adjusted path forward.
 
 ---
 
 ## 🏛️ System Architecture
 
 ```mermaid
-graph TB
-    subgraph INPUT["📥 INPUT LAYER — Any User, Any Domain, Any Format"]
-        A1[🎙️ Voice / Audio] --> PRE[Input Preprocessor]
-        A2[📄 Text Transcripts] --> PRE
-        A3[📝 Free-form Notes] --> PRE
-        A4[🖥️ Manual Entry] --> PRE
-    end
-
-    subgraph DASHCAM["🎯 COGNITIVE DASHCAM — Context Engine"]
-        PRE --> F[Noise & Intent Filtration]
-        F --> G[Domain Classifier\nBusiness · Education · Personal]
-        G --> H[Entity Extractor\nWho · What · When · Priority · Why]
-        H --> I[Pydantic Schema Validator]
-        I --> J[(📋 Structured Action Ledger)]
-    end
-
-    subgraph PRAXIS["⚔️ PRAXIS SWARM — Predictive Simulation Arena"]
-        J --> K[Action Interceptor]
-        K --> L{Swarm\nSpawner}
-        L --> M1[🔴 Expert Persona A\nDomain Specialist 1]
-        L --> M2[🟡 Expert Persona B\nDomain Specialist 2]
-        L --> M3[🔵 Expert Persona C\nDomain Specialist 3]
-        M1 --> N[Debate Synthesizer]
-        M2 --> N
-        M3 --> N
-        N --> O[⚖️ Risk Score Engine\n0 – 100]
-        O --> P[🔀 Alternative Path Generator]
-    end
-
-    subgraph OUTPUT["📤 OUTPUT LAYER"]
-        P --> Q[📊 Adaptive Dashboard]
-        J --> Q
-        O --> R[⚠️ Contextual Alert System]
-        P --> S[✅ Optimized Action Variants]
-        Q --> T[🔗 Integrations\nSlack · Jira · Notion · Calendar]
-    end
-
-    subgraph BRAIN["🤖 GOOGLE GEMINI — AI Brain"]
-        G -.->|Fast Tasks| GF[Gemini 1.5 Flash]
-        H -.->|Fast Tasks| GF
-        M1 -.->|Deep Reasoning| GP[Gemini 1.5 Pro]
-        M2 -.->|Deep Reasoning| GP
-        M3 -.->|Deep Reasoning| GP
-        N -.->|Synthesis| GP
-    end
-
-    style INPUT fill:#1a1a2e,stroke:#4ecca3,color:#fff
-    style DASHCAM fill:#16213e,stroke:#e94560,color:#fff
-    style PRAXIS fill:#0f3460,stroke:#f5a623,color:#fff
-    style OUTPUT fill:#1a1a2e,stroke:#4ecca3,color:#fff
-    style BRAIN fill:#0d0d0d,stroke:#7b2fff,color:#fff
-```
-
----
-
-## 🗺️ Workflow Diagrams
-
-### 1. High-Level System Flow
-
-```mermaid
-flowchart LR
-    A([🎙️ Any User Input\nAudio · Text · Notes]) --> B[/Raw Unstructured\nContent/]
-    B --> C{{"🧠 Cognitive\nDashcam"}}
-    C --> D[(Structured Action\nLedger — JSON)]
-    D --> E{{"⚔️ Praxis\nSwarm"}}
-    E --> F{Risk\nScore}
-    F -->|75–100| G[🔴 HIGH RISK\nBlock + Force Review]
-    F -->|40–74| H[🟡 MEDIUM RISK\nFlag + Alternatives]
-    F -->|0–39| I[🟢 LOW RISK\nApprove + Execute]
-    G --> J[📊 Adaptive Dashboard]
-    H --> J
-    I --> J
-    J --> K([🔗 Downstream Actions\nNotifications · Tasks · Calendars])
-
-    style A fill:#7b2fff,color:#fff
-    style C fill:#e94560,color:#fff
-    style E fill:#f5a623,color:#000
-    style G fill:#ff4757,color:#fff
-    style H fill:#ffa502,color:#000
-    style I fill:#2ed573,color:#000
-    style K fill:#1e90ff,color:#fff
-```
-
----
-
-### 2. Context Understanding Pipeline
-
-> *How Omni transforms chaotic, unstructured input from any domain into clean, machine-executable context.*
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor U as 👤 User (Any Domain)
-    participant P as 📥 Input Preprocessor
-    participant F as ⚡ Gemini 1.5 Flash
-    participant D as 🔍 Domain Classifier
-    participant E as 🗂️ Entity Extractor
-    participant V as 🔷 Pydantic Validator
-    participant L as 📋 Action Ledger
-
-    U->>P: Submit input (audio / notes / transcript / text)
-    P->>F: Send raw content for context analysis
-
-    Note over F: Strips noise, filler words,<br/>tangents & irrelevant content
-
-    F->>D: Classify domain context
-    D-->>F: Domain → Business / Education / Personal
-
-    F->>E: Extract structured entities
-    Note over E: WHO is responsible?<br/>WHAT is the action?<br/>WHEN is the deadline?<br/>WHY does it matter?<br/>HOW urgent is it?
-
-    E-->>V: Return raw JSON payload
-
-    V->>V: Validate against domain-specific schema
-    V->>V: Check required fields, types & formats
-
-    alt ✅ Validation Passed
-        V->>L: Commit clean action objects
-        L-->>U: Structured action ledger displayed
-    else ❌ Validation Failed
-        V-->>F: Return with error context
-        F-->>V: Corrected payload (max 2 retries)
-    end
-```
-
----
-
-### 3. Praxis Swarm — Multi-Agent Simulation Flow
-
-> *How Omni stress-tests every decision before it touches the real world, using concurrent AI expert personas tailored to the detected domain.*
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant L as 📋 Action Ledger
-    participant I as 🚦 Action Interceptor
-    participant S as 🌀 Swarm Spawner
-    participant P1 as 🔴 Expert Persona A
-    participant P2 as 🟡 Expert Persona B
-    participant P3 as 🔵 Expert Persona C
-    participant G as 🌟 Gemini 1.5 Pro
-    participant SY as 🧩 Debate Synthesizer
-    participant OUT as 📊 Risk Output
-
-    L->>I: New action object proposed
-    I->>I: Read domain context from ledger
-    I->>S: Trigger Praxis Swarm (domain-aware)
-
-    Note over S: Persona selection by domain:<br/>Business → Legal · Finance · Customer<br/>Education → Teacher · Student · Parent<br/>Personal → Health · Finance · Social
-
-    par Concurrent Persona Instantiation
-        S->>P1: Spawn + assign action context
-        S->>P2: Spawn + assign action context
-        S->>P3: Spawn + assign action context
-    end
-
-    par Parallel Debate via Gemini 1.5 Pro
-        P1->>G: Analyze from Expert A's lens
-        P2->>G: Analyze from Expert B's lens
-        P3->>G: Analyze from Expert C's lens
-    end
-
-    G-->>P1: Verdict + severity rating
-    G-->>P2: Verdict + impact score
-    G-->>P3: Verdict + sentiment/risk score
-
-    P1->>SY: Submit verdict
-    P2->>SY: Submit verdict
-    P3->>SY: Submit verdict
-
-    SY->>G: Synthesize all 3 verdicts into unified analysis
-    G-->>SY: Aggregate Risk Score (0–100) + rationale
-
-    SY->>OUT: Final Risk Score + reasoning breakdown
-    SY->>OUT: Safer alternative action variants
-    OUT-->>L: Update action with risk metadata
-```
-
----
-
-### 4. Risk Score Aggregation Logic
-
-```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'fontFamily': 'sans-serif', 'lineColor': '#8b949e' }}}%%
 flowchart TD
-    A[🎯 Proposed Action] --> B[Expert Persona A\nPrimary Risk Analysis]
-    A --> C[Expert Persona B\nImpact Analysis]
-    A --> D[Expert Persona C\nUser / Stakeholder Analysis]
+    %% Custom Styling for Nodes
+    classDef base fill:#161b22,stroke:#8b949e,stroke-width:2px,color:#ffffff,rx:8
+    classDef data fill:#0d419d,stroke:#58a6ff,stroke-width:2px,color:#ffffff,rx:8
+    classDef success fill:#238636,stroke:#3fb950,stroke-width:2px,color:#ffffff,rx:8
+    classDef danger fill:#da3633,stroke:#ff7b72,stroke-width:2px,color:#ffffff,rx:8
+    classDef agent fill:#21262d,stroke:#a5d6ff,stroke-width:2px,color:#ffffff,rx:20
 
-    B --> B1{Severity}
-    B1 -->|Critical| B2[40 pts]
-    B1 -->|Moderate| B3[20 pts]
-    B1 -->|Low| B4[5 pts]
+    %% --- 1. AMBIENT PHASE ---
+    A(["🎙️ Ambient Audio Stream<br/>(Chaos & Loose Talk)"]):::base
 
-    C --> C1{Impact}
-    C1 -->|High Negative| C2[35 pts]
-    C1 -->|Neutral| C3[15 pts]
-    C1 -->|Positive| C4[0 pts]
+    %% --- 2. DASHCAM PHASE ---
+    B["🎯 Semantic Filter<br/>(Discards Noise)"]:::base
+    C["🧠 Intent Extractor<br/>(Isolates Action)"]:::base
+    D[("📋 Draft Decision Ledger<br/>(JSON Payload)")]:::data
 
-    D --> D1{User Impact}
-    D1 -->|High Disruption| D2[25 pts]
-    D1 -->|Mixed| D3[12 pts]
-    D1 -->|Beneficial| D4[0 pts]
+    %% --- 3. PRAXIS SIMULATION PHASE ---
+    E["⚖️ Dynamic Persona Spawner"]:::base
+    
+    %% The Agents (Arranged side-by-side naturally by the renderer)
+    A1(("🟢 Proponent")):::agent
+    A2(("🔴 Skeptic")):::agent
+    A3(("🟡 Risk Officer")):::agent
+    
+    F{"Risk Score Engine"}:::base
 
-    B2 & B3 & B4 --> E[Persona A Score]
-    C2 & C3 & C4 --> F[Persona B Score]
-    D2 & D3 & D4 --> G[Persona C Score]
+    %% --- 4. EXECUTION PHASE ---
+    R["❌ High Risk<br/>(Reject & Pivot)"]:::danger
+    G["✅ Low Risk<br/>(Single-Tap Execute)"]:::success
+    H[("🔗 Integrations<br/>(Slack · Jira · Calendar)")]:::data
 
-    E --> H[/"∑ Weighted\nRisk Score"/]
-    F --> H
-    G --> H
-
-    H --> I{Threshold\nCheck}
-    I -->|75–100| J[🔴 BLOCK\nForce human review + log]
-    I -->|40–74| K[🟡 WARN\nFlag + suggest alternatives]
-    I -->|0–39| L[🟢 APPROVE\nExecute with monitoring]
-
-    style J fill:#ff4757,color:#fff
-    style K fill:#ffa502,color:#000
-    style L fill:#2ed573,color:#000
-    style H fill:#7b2fff,color:#fff
+    %% --- THE DATA FLOW (Top to Bottom Symmetry) ---
+    A -->|Streams Raw Data| B
+    B -->|Core Context| C
+    C -->|Structures Task| D
+    
+    D -->|Triggers Simulation| E
+    
+    %% Spawning the agents (Spreads outwards)
+    E --> A1
+    E --> A2
+    E --> A3
+    
+    %% Agents debate and funnel back inward to the Risk Engine
+    A1 -.->|Debate| A2
+    A2 -.->|Debate| A3
+    
+    A1 -->|Synthesizes| F
+    A2 -->|Synthesizes| F
+    A3 -->|Synthesizes| F
+    
+    %% Branching out to resolution
+    F -->|Score > 75| R
+    F -->|Score <= 75| G
+    
+    %% Final Action
+    G -->|Fires Webhooks| H
 ```
 
 ---
 
-### 5. Domain Adaptation Flow
+## 🤖 Google AI Usage
 
-> *How the same Omni core engine shifts its persona, schema, and output format based on who the user is and what they're doing.*
+### Tools / Models Used
 
-```mermaid
-flowchart TD
-    INPUT([📥 User Input]) --> DC[Domain Classifier\nGemini 1.5 Flash]
+| Model | Role |
+|---|---|
+| **Gemini 1.5 Flash** | Powers the Cognitive Dashcam — fast ambient audio processing, semantic filtering, and structured JSON extraction |
+| **Gemini 1.5 Pro** | Drives Praxis — deep reasoning for multi-agent persona simulation, constraint enforcement, and risk scoring |
+| **google-genai Python SDK** | Orchestrates the full async workflow with Pydantic schema validation |
 
-    DC -->|Detected: Business| BIZ[🏢 Business Mode]
-    DC -->|Detected: Education| EDU[🎓 Education Mode]
-    DC -->|Detected: Personal| PER[🏠 Personal Mode]
+### How Google AI Was Used
 
-    BIZ --> B1[Extracts: Tasks · Decisions · Deadlines · Owners]
-    BIZ --> B2[Swarm Personas: Legal · Finance · Customer]
-    BIZ --> B3[Output: JSON Tasks + Slack / Jira Webhooks]
+**Step 1 — Ambient Capture (Gemini Flash):**
+The Cognitive Dashcam pipes audio or notes through Gemini 1.5 Flash. Its massive context window handles long sessions in real time, discarding loose talk and extracting structured decisions as JSON.
 
-    EDU --> E1[Extracts: Topics · Assignments · Exams · Goals]
-    EDU --> E2[Swarm Personas: Teacher · Student · Parent]
-    EDU --> E3[Output: Study Plan + Calendar Events + Reminders]
+**Step 2 — Praxis Simulation (Gemini Pro):**
+The extracted decision (e.g., *"Let's push the new UI update to production on Friday"*) is immediately routed to Gemini 1.5 Pro. The SDK calls the model with a dynamically generated system prompt that:
+- Assigns three competing personas (e.g., *Lead Developer*, *Customer Support Lead*, *Security Officer*)
+- Forces them into a structured chat debate using Pydantic output contracts (`SwarmRoles`, `AgentResponse`, `OrchestratorSynthesis`)
+- If the "Customer Support Lead" agent flags a Friday release as a historical spike risk, it raises the internal **Risk Score**
 
-    PER --> P1[Extracts: Goals · Habits · Reminders · Decisions]
-    PER --> P2[Swarm Personas: Health · Finance · Social]
-    PER --> P3[Output: Daily Agenda + Personal Notifications]
+**Step 3 — Say-Do Gap Resolution:**
+Gemini synthesizes the multi-agent chat log into a final `OrchestratorSynthesis` object containing:
+- A numeric `riskScore` (0–100)
+- A `riskLevel` label (`low`, `medium`, `high`)
+- A one-sentence `sayDoGap` summary
+- A `saferVariant` recommendation
+- A `insight` behavioral prediction
 
-    B3 --> LEDGER[(📋 Unified Action Ledger)]
-    E3 --> LEDGER
-    P3 --> LEDGER
-
-    LEDGER --> DASH[📊 Adaptive Dashboard\nRendered for detected domain]
-
-    style BIZ fill:#e94560,color:#fff
-    style EDU fill:#4ecca3,color:#000
-    style PER fill:#f5a623,color:#000
-    style LEDGER fill:#7b2fff,color:#fff
-    style DASH fill:#1e90ff,color:#fff
-```
+The result is pushed to Firebase Firestore and surfaces on the frontend dashboard in real time via `onSnapshot`.
 
 ---
 
-### 6. End-to-End User Journey
+## 📸 Proof of Google AI Usage
 
-```mermaid
-journey
-    title Project Omni — Universal User Journey (Any Domain)
-    section Input
-      User provides raw input (audio/text/notes): 3: User
-      Omni preprocesses and cleans the input: 5: Omni
-    section Context Understanding
-      Domain is auto-detected: 5: Omni
-      Entities extracted (who, what, when, why): 5: Omni
-      Action ledger structured and validated: 4: Omni
-      User reviews the clean action list: 4: User, Omni
-    section Simulation
-      User proposes or confirms an action: 4: User
-      Praxis Swarm activates with domain personas: 5: Omni
-      Personas debate the action concurrently: 5: Omni
-      Risk Score computed and explained: 5: Omni
-    section Decision
-      User reviews Risk Score and alternatives: 4: User
-      User selects a safer or optimized variant: 4: User, Omni
-      Action approved and committed to ledger: 5: User, Omni
-    section Execution
-      Webhooks fire to integrated tools: 5: Omni
-      User receives confirmation and task tracking: 4: User
-      Progress monitored on adaptive dashboard: 4: User, Omni
-```
+> Screenshots are stored in the `/proof` folder of this repository.
 
----
+### Screenshot 1 — Praxis Multi-Agent Backend (`simulation_swarm.py`)
 
-## 🤖 Google AI Integration
+<img width="2559" height="1534" alt="image" src="https://github.com/user-attachments/assets/88590c27-70eb-4b62-a67a-ec43116169a3" />
 
-```mermaid
-%%{init: {'theme': 'neutral'}}%%
-mindmap
-  root((🤖 Google AI\nCore Brain))
-    Gemini 1.5 Flash
-      Input Noise Filtration
-      Domain Auto-Classification
-      Fast Entity Extraction
-      Real-time Parsing
-      Schema Retry Logic
-    Gemini 1.5 Pro
-      Expert Persona A Reasoning
-      Expert Persona B Reasoning
-      Expert Persona C Reasoning
-      Cross-Domain Debate Synthesis
-      Risk Score Computation
-      Alternative Path Generation
-    google-genai Python SDK
-      Concurrent Async API Calls
-      Structured JSON Output Mode
-      Pydantic Schema Binding
-      Streaming Response Support
-      Multi-turn Context Management
-```
 
-| Model | Role | Why This Model |
-|---|---|---|
-| **Gemini 1.5 Flash** | Input parsing, domain detection, entity extraction | Low-latency; ideal for high-frequency preprocessing tasks |
-| **Gemini 1.5 Pro** | Multi-agent persona debates, synthesis, risk scoring | Maximum reasoning depth for critical simulation accuracy |
+
+This screenshot shows `simulation_swarm.py` open in VS Code within the `Project-Omni` workspace. It directly demonstrates:
+- `from google import genai` and `from google.genai import types` imports on lines 4–5, confirming use of the official **google-genai Python SDK**
+- **Pydantic output contracts** (`SwarmRoles`, `AgentResponse`, `OrchestratorSynthesis`, `PraxisSimulationResult`) that enforce strict structured JSON responses from Gemini 1.5 Pro
+- Field-level descriptions on lines 10–34 showing exactly how the multi-agent personas (Proponent, Skeptic, Risk Officer) and the final `riskScore`/`sayDoGap` analysis are defined and captured
+- The project file tree on the left confirms the full stack: `ai/`, `backend/app/`, and `frontend/src/` directories are all present and active
+
+### Screenshot 2 — Architecture & Real-Time Sync Planning with Gemini
+
+<img width="1080" height="605" alt="Screenshot_20260407-194636" src="https://github.com/user-attachments/assets/c4c367c2-10d7-4e94-875f-e6aeea88036c" />
+
+
+This screenshot shows a **live Gemini conversation** (at `gemini.google.com`) titled *"Backend Development Plan Explained"* in which Gemini was used as the technical co-architect for Project Omni. Key evidence:
+- **Phase 3: Integration & Real-Time Sync (Hours 24–36)** — Gemini explicitly details the Firebase `onSnapshot` pattern used to wire the Praxis simulation output to the live frontend dashboard
+- Gemini explains the `db.collection().add()` flow that causes new cards to *"automatically pop up with new cards without the user refreshing"* — this is the exact mechanism implemented in the final product
+- **The Demo Loop** section shows Gemini advising on how to pre-populate the database with demo transcripts, confirming it shaped the project's demo strategy
+- The chat history on the left sidebar reveals an extended, multi-session AI collaboration: *"AI Assistant for Enterprise Decision-..."*, *"AI Farming: WOW Factors & Loopholes"*, and more, demonstrating sustained use of Google AI throughout development
+
+### Screenshot 3 — Live Firebase Cloud Infrastructure (`project-omni-fbc7f`)
+
+<img width="1080" height="612" alt="Screenshot_20260407-194605" src="https://github.com/user-attachments/assets/9344db90-f3bd-47e1-ad93-fd2255571381" />
+
+
+This screenshot shows the **Firebase Console** logged in as *Adithya*, proving active cloud infrastructure deployment:
+- The project `Project-Omni` with ID `project-omni-fbc7f` is listed as the sole active project under the account
+- This is the live Firestore database that receives real-time simulation results from the Gemini-powered Praxis backend and streams them to the frontend via `onSnapshot`
+- The console confirms the infrastructure is not mocked — it is a real, deployed Firebase project backing the live demo
 
 ---
 
-## 🛠️ Tech Stack
+## 🎥 Demo Video
 
-```mermaid
-graph LR
-    subgraph Frontend["🖥️ Frontend"]
-        F1[⚛️ React / Next.js]
-        F2[🎨 TailwindCSS]
-        F3[📊 Recharts / D3.js]
-    end
-
-    subgraph Backend["⚙️ Backend"]
-        B1[🐍 Python 3.x]
-        B2[⚡ FastAPI]
-        B3[🔷 Pydantic v2]
-        B4[🔄 Uvicorn ASGI]
-    end
-
-    subgraph AI_Layer["🤖 AI Layer"]
-        A1[Gemini 1.5 Flash]
-        A2[Gemini 1.5 Pro]
-        A3[google-genai SDK]
-    end
-
-    subgraph Integrations["🔗 Integrations"]
-        I1[💬 Slack]
-        I2[📋 Jira]
-        I3[📝 Notion]
-        I4[📅 Google Calendar]
-    end
-
-    Frontend <-->|REST / WebSocket| Backend
-    Backend <-->|Async API Calls| AI_Layer
-    Backend -->|Outbound Webhooks| Integrations
-```
+[▶ Watch the Project Omni Demo](https://drive.google.com/drive/folders/1PIg69rjF-MnUC-JSNNcDp0YgIh59ab4B?usp=sharing) *(Max 3 minutes)*
 
 ---
 
-
-## 📦 Installation
+## ⚙️ Installation
 
 ### Prerequisites
 
-| Requirement | Version |
-|---|---|
-| Python | `>= 3.9` |
-| Node.js | `>= 18.x` |
-| Google AI API Key | [Get one here](https://makersuite.google.com/app/apikey) |
+- Python `>= 3.9`
+- Node.js `>= 18.x`
+- [Google Gemini API Key](https://aistudio.google.com/app/apikey)
 
-### Setup
+### Setup Instructions
 
 ```bash
 # 1. Clone the repository
 git clone <your-repo-link>
-cd Project-Omni
-```
 
-```bash
-# 2. Backend Setup
+# 2. Go to project folder
+cd project-name
+
+# 3. Backend Setup (Cognitive Dashcam API)
 cd backend
 python -m venv venv
-source venv/bin/activate        # Linux/macOS
-# venv\Scripts\activate         # Windows
-
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-cp .env.example .env            # Add your GOOGLE_API_KEY here
+# Create environment file and add your Gemini API Key
+cp .env.example .env
+# Edit .env and add: GOOGLE_API_KEY=your_key_here
 
+# Start the FastAPI server
 python -m uvicorn app.main:app --reload --port 8000
 ```
 
 ```bash
-# 3. Frontend Setup (new terminal)
-cd frontend
+# 4. Frontend Setup (Zero-Prompt Dashboard)
+cd ../frontend
 npm install
+
+# 5. Run the client
 npm run dev
 ```
 
-```
-✅ Backend  →  http://localhost:8000
-✅ Frontend →  http://localhost:3000
-✅ API Docs →  http://localhost:8000/docs
-```
-
-### Environment Variables
-
-```env
-GOOGLE_API_KEY=your_gemini_api_key_here
-GEMINI_FLASH_MODEL=gemini-1.5-flash
-GEMINI_PRO_MODEL=gemini-1.5-pro
-ALLOWED_ORIGINS=http://localhost:3000
-DEFAULT_DOMAIN=auto              # auto | business | education | personal
-```
-
----
-
-## 📡 API Reference
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/v1/input/parse` | Submit raw input → returns structured action ledger |
-| `GET` | `/api/v1/ledger` | Fetch all structured action objects |
-| `GET` | `/api/v1/domain/detect` | Detect domain context from input text |
-| `POST` | `/api/v1/actions/simulate` | Trigger Praxis Swarm on a proposed action |
-| `GET` | `/api/v1/actions/{id}/risk` | Get full Risk Score + all persona verdicts |
-| `PUT` | `/api/v1/actions/{id}/approve` | Approve or reject a simulated action |
-| `GET` | `/api/v1/dashboard/summary` | Aggregated dashboard metrics |
-
----
-
-## 🗂️ Project Structure
-
-```
-Project-Omni/
-├── 📁 backend/
-│   ├── 📁 app/
-│   │   ├── main.py                    # FastAPI entrypoint
-│   │   ├── 📁 api/
-│   │   │   ├── input.py               # Input parsing endpoints
-│   │   │   ├── actions.py             # Praxis Swarm endpoints
-│   │   │   └── dashboard.py           # Metrics endpoints
-│   │   ├── 📁 core/
-│   │   │   ├── dashcam.py             # Cognitive Dashcam logic
-│   │   │   ├── domain_classifier.py   # Auto domain detection
-│   │   │   └── praxis_swarm.py        # Multi-agent simulation engine
-│   │   ├── 📁 schemas/
-│   │   │   ├── action.py              # Pydantic action models
-│   │   │   ├── domain.py              # Domain-specific schemas
-│   │   │   └── risk.py                # Risk score models
-│   │   └── 📁 services/
-│   │       └── gemini.py              # Google AI integration layer
-│   └── requirements.txt
-│
-├── 📁 frontend/
-│   ├── 📁 src/
-│   │   ├── 📁 components/
-│   │   │   ├── ActionLedger.jsx       # Structured task view
-│   │   │   ├── SwarmDebate.jsx        # Live debate visualizer
-│   │   │   ├── RiskGauge.jsx          # Risk score component
-│   │   │   └── DomainBadge.jsx        # Active domain indicator
-│   │   ├── 📁 pages/
-│   │   │   ├── Dashboard.jsx
-│   │   │   └── Simulate.jsx
-│   │   └── App.jsx
-│   └── package.json
-│
-├── 📁 proof/
-│   ├── screenshot1.png
-│   └── screenshot2.png
-│
-└── README.md
-```
-
----
-
-## 🔭 Roadmap
-
-```mermaid
-gantt
-    title Project Omni — Development Roadmap
-    dateFormat  YYYY-MM-DD
-    section Phase 1 · Core Engine
-    Cognitive Dashcam Engine            :done,    2025-01-01, 30d
-    Pydantic Schema Integration         :done,    2025-01-15, 20d
-    FastAPI Backend                     :done,    2025-02-01, 15d
-    section Phase 2 · Simulation
-    Praxis Swarm Spawner                :done,    2025-02-10, 25d
-    3-Persona Concurrent Debate         :done,    2025-02-20, 20d
-    Risk Scoring Engine                 :done,    2025-03-05, 15d
-    section Phase 3 · Domain Expansion
-    Domain Auto-Classifier              :active,  2025-03-15, 20d
-    Education Mode Personas             :active,  2025-03-25, 25d
-    Personal Mode Personas              :         2025-04-10, 20d
-    section Phase 4 · UX and Integrations
-    Adaptive Multi-domain Dashboard     :         2025-04-20, 20d
-    Slack · Notion · Calendar Webhooks  :         2025-04-25, 25d
-    Voice Input & STT Support           :         2025-05-10, 30d
-    Custom Persona Builder              :         2025-05-25, 30d
-```
-
----
-
-## 🤝 Contributing
-
-```
-1. Fork the repository
-2. Create your feature branch:   git checkout -b feature/AmazingFeature
-3. Commit your changes:          git commit -m 'feat: Add AmazingFeature'
-4. Push to the branch:           git push origin feature/AmazingFeature
-5. Open a Pull Request
-```
+The dashboard will be available at `http://localhost:5173`.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-
-**Built with ❤️ using Google Gemini AI**
-
-*Context-aware. Domain-adaptive. Predictively intelligent.*
-*A true next-generation AI assistant for education, business, and everyday life.*
-
-⭐ **Star this repo** if Project Omni changed the way you think about AI assistants!
-
-</div>
+This project is licensed under the **MIT License**.
