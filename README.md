@@ -45,7 +45,6 @@
   - [End-to-End User Journey](#6-end-to-end-user-journey)
 - [Google AI Integration](#-google-ai-integration)
 - [Tech Stack](#-tech-stack)
-- [Screenshots](#-screenshots)
 - [Installation](#-installation)
 - [API Reference](#-api-reference)
 - [Project Structure](#-project-structure)
@@ -121,6 +120,7 @@ Before any decision or action is executed, Omni intercepts it. The Praxis Swarm 
 Project Omni's architecture is domain-agnostic. The same core Gemini-powered engine dynamically shifts behavior based on detected context:
 
 ```mermaid
+%%{init: {'theme': 'neutral'}}%%
 mindmap
   root((🧠 Project Omni\nNext-Gen AI Assistant))
     🏢 Business
@@ -449,6 +449,7 @@ journey
 ## 🤖 Google AI Integration
 
 ```mermaid
+%%{init: {'theme': 'neutral'}}%%
 mindmap
   root((🤖 Google AI\nCore Brain))
     Gemini 1.5 Flash
@@ -516,13 +517,6 @@ graph LR
 
 ---
 
-## 📸 Screenshots
-
-| Cognitive Dashcam — Action Ledger | Praxis Swarm — Live Debate |
-|:---:|:---:|
-| ![Screenshot 1](./proof/screenshot1.png) | ![Screenshot 2](./proof/screenshot2.png) |
-
----
 
 ## 📦 Installation
 
