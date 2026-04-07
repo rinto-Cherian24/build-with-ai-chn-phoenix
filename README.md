@@ -6,8 +6,17 @@ The demand for intelligent systems capable of assisting users in decision-making
 Participants are tasked with developing an advanced AI assistant capable of understanding context, analyzing information, and performing meaningful actions. The solution should enhance productivity and user experience across domains such as education, business, or everyday use. 
 
 ## Project Description
-Project Omni is an advanced, context-aware intelligence assistant and AI Copilot designed for high-stakes enterprise scenarios. Our solution bridges the gap between raw ideas and safe execution. It leverages multi-agent simulation to automatically extract precise context from raw meeting transcripts. It then runs predictive simulations (a "Praxis Swarm") to anticipate risks, gauge dynamic feedback, and propose safer alternatives before a decision is finalized. This acts as a cognitive dashcam and real-time simulator to map out action consequences.
+Project Omni is not just a digital assistant; it is a **Cognitive Enterprise Operating System**. It bridges the massive gap between abstract strategy formulation and real-world execution by acting as a proactive, highly contextual **"Decision Time Machine."**
 
+Omni fundamentally redesigns how organizations execute tasks through two radical innovations:
+
+**1. The Cognitive Dashcam (Context Engine):**
+Meeting notes get lost, and intent is often muddled by casual banter. Omni acts as an active listener. Using advanced LLMs, it siphons chaotic, raw meeting audio and transcripts, dynamically stripping away noise to automatically generate an undisputed, structured ledger of exact decisions, assignees, and deadlines. It transforms casual talk instantly into strict, executable code and JSON logic.
+
+**2. The Praxis Swarm (Predictive Simulation Arena):**
+Instead of just logging tasks, Omni simulates them. Before a potentially flawed decision ever touches the real world, it is intercepted by our Praxis Swarm Engine. Omni dynamically instantiates a customized, parallel multi-agent debate consisting of specialized AI Personas—such as a protective Legal Director, a Revenue-focused Manager, and a spam-sensitive Customer. These agents aggressively debate the proposed action in real time. They expose hidden frictions, calculate an aggregate predictive Risk Score, and autonomously generate safer, optimized action paths.
+
+With Project Omni, teams no longer rely on hindsight. Every decision is battle-tested in a hyper-realistic AI simulation arena, turning defensive, reactive management into a predictive superpower. 
 ## Google AI Usage
 ### Tools / Models Used
 - Google Gemini 1.5 Flash
